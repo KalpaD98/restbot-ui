@@ -3,9 +3,8 @@ import Widget from 'rasa-webchat';
 
 function ChatWidget() {
 
-    return (
-        <Widget
-            socketUrl={"http://localhost:5005"}
+    return (<Widget
+            socketUrl={"http://192.168.8.102:5005"}
             initPayload={"/greet"}
             customData={{language: "en"}} // arbitrary custom data. Stay minimal as this will be added to the socket
             title={"ResBot"}
@@ -17,16 +16,14 @@ function ChatWidget() {
             onWidgetEvent={{
                 onChatClose: () => {
                     localStorage.clear();
-                },
-                onChatOpen: () => {
+                }, onChatOpen: () => {
                     localStorage.clear();
                 }
             }}
             params={{
                 storage: 'local',
             }}
-        />
-    )
+        />)
 }
 
 export default ChatWidget;

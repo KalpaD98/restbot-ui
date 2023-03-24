@@ -1,0 +1,11 @@
+#1 After Making changes to app commit and push to main branch
+
+#2 Rebuild the Docker image: Navigate to the directory containing your docker-compose.yml file in the terminal.
+Run the following command to rebuild the Docker image with the updated code:
+
+docker-compose build
+
+#3 Recreate the container with the updated image: Use the following command to recreate the container with the updated Docker image.
+This command will stop the existing container, remove it, and create a new one with the updated image.
+
+docker-compose up -d --force-recreate
