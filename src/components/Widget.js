@@ -2,9 +2,17 @@ import React from 'react'
 import Widget from 'rasa-webchat';
 
 function ChatWidget() {
+
     const myCustomData = {
         inputTextFieldDelay: 300,
         language: "en"
+    }
+
+    function calculateMessageDelay(message) {
+        let delay = message.length * 12; // Change this value to adjust the delay per character
+        if (delay > 1400) delay = 1400; // Set an upper limit for the delay
+        if (delay < 400) delay = 400; // Set a lower limit for the delay
+        return delay;
     }
 
     return (<Widget
@@ -14,19 +22,20 @@ function ChatWidget() {
         customData={myCustomData} // arbitrary custom data. Stay minimal as this will be added to the socket
         title={"ResBot"}
         subtitle={"Powered by Code Masters"}
-        //params={{"storage": "session"}}
         autoClearCache={true}
-        customComponent={({text}) => <div><p>{text}{text}{text}</p></div>}
         displayUnreadCount={true}
+        //params={{"storage": "session"}}
+        params={{
+            storage: 'local',
+        }}
+        customMessageDelay={calculateMessageDelay}
+        customComponent={({text}) => <div><p>{text}{text}{text}</p></div>}
         onWidgetEvent={{
             onChatClose: () => {
                 localStorage.clear();
             }, onChatOpen: () => {
                 localStorage.clear();
             }
-        }}
-        params={{
-            storage: 'local',
         }}
     />)
 }
