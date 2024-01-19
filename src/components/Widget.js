@@ -16,19 +16,17 @@ function ChatWidget() {
     }
 
     return (<Widget
-        // socketUrl={"http://192.168.8.102:5005"}
-        socketUrl={"http://localhost:5005"}
+        socketUrl={"http://localhost:5005"} // http://192.168.8.102:5005
         initPayload={"/greet"}
         customData={myCustomData} // arbitrary custom data. Stay minimal as this will be added to the socket
         title={"ResBot"}
         subtitle={"Powered by Code Masters"}
         autoClearCache={true}
         displayUnreadCount={true}
-        //params={{"storage": "session"}}
+        customMessageDelay={calculateMessageDelay}
         params={{
             storage: 'local',
         }}
-        customMessageDelay={calculateMessageDelay}
         customComponent={({text}) => <div><p>{text}{text}{text}</p></div>}
         onWidgetEvent={{
             onChatClose: () => {
