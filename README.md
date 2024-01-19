@@ -1,7 +1,7 @@
 # Resbot-UI
 This is the UI for the Resbot project. It is a React app that uses the [Material-UI](https://material-ui.com/) framework.
 
-This project is using rasa-webchat widget by botfront.
+This project is using rasa-webchat widget by botfront (modified to suit our project needs).
 
 Rasa Webchat is a highly customizable chat widget powered by Botfront that allows you to easily integrate your Rasa chatbot into your website. This document provides an overview of the main components available in the Rasa Webchat UI and explains how to use them in your Rasa action server.
 
